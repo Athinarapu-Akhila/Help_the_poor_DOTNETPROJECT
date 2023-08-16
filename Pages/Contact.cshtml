@@ -1,0 +1,78 @@
+@page
+@model project.Pages.Contact
+@{
+    
+}
+<<div class="header">
+        <img src="\images\logo.png" alt="Image" />
+    <h1 class="display-4">Help The Poor</h1>
+</div>
+<div class="topnav">
+        <a asp-page="/Home">Home</a>
+        <a asp-page="/News">News</a>
+        <a asp-page="/Contact">Contact</a>
+        <a asp-page="/About">About</a>
+</div>
+<div>
+    <p>If you need any help, You can reach out to us.</p>
+    <p>Akhila: +91 6234567890</p>
+</div>
+<div class="container1">
+  <form method="post">
+
+    <label for="fname">FullName</label>
+    <input type="text" name="n"  placeholder="Your name."><br><br>
+    <label for="fname">Gender  </label>
+    <input type="radio" name="g" value="Female" >Female</input>
+     <input type="radio" name="g" value="ale">Male</input><br><br>
+    <label for="contact">Phone No</label>
+    <input type="number" name="ph"  placeholder="Phone number."><br><br>
+    <label for="country">Select country:</label>
+    <select id="countrylist" name="SelectedItem" asp-for="SelectedItem">
+        @foreach (var item in Model.Items)
+        {
+            <option value="@item">@item</option>
+        }
+    </select><br><br>
+    <label for="addr">Address</label>
+    <input type="textbox" name="a" placeholder="Address."><br><br>
+    <label for="reason">Reason</label>
+    <input type="text" name="r" placeholder="Give the Reason."><br><br>
+    <input type="submit" value="Submit" asp-page-handler="Submit">
+    
+</form>
+</div>
+@if (Model.DataList.Count > 0)
+{
+    <h2>Details</h2>
+    <table id="customers">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Phone No</th>
+                <th>Country</th>
+                <th>Address</th>
+                <th>Reason</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model.DataList)
+            {
+                <tr>
+                    <td>@data.name</td>
+                    <td> @data.gender</td>
+                    <td>@data.phoneno</td>
+                    <td>@data.SelectedItem</td>
+                    <td>@data.address</td>
+                    <td>@data.reason</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="">Delete</a>
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,24 @@
+@page
+@model project.Pages.Home
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="header">
+        <img src="\images\logo.png" alt="Image" />
+    <h1 class="display-4">Help The Poor</h1>
+</div>
+<div class="topnav">
+        <a asp-page="/Home">Home</a>
+        <a asp-page="/News">News</a>
+        <a asp-page="/Contact">Contact</a>
+        <a asp-page="/About">About</a>
+</div>
+
+<h1 class="header1">We are here to help u!!!</h1>
+<div class="p1">
+    <p class="pa">The flooded waters in Delhi-NCR have caused human life to go haywire, and alongside brought agony to the state of animals as well. The waters might recede, but the situation will continue to remain grim for a long time, due to the waterlogged animal shelters in several parts of NCR; where the swollen waters of the Yamuna rose drastically. Becoming a beacon of hope and survival for the voiceless, a few volunteers joined hands with NGOs and animal shelters, to lend a helping hand to the strays in localities such as Mayur Vihar Phase-1, Shastri Nagar and Noida Sector 135. Many aligned their efforts with the resources from National Disaster Response Force (NDRF) and Noida District Magistrate’s office.</p>
+
+</div>
+<center>
+<button class="button button1" asp-page-handler="Submit">Donate now</button>
+</center>
